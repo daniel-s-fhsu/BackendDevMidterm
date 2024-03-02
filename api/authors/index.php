@@ -8,6 +8,9 @@ if ($method == 'GET') {
     if ($id === '') {
         //No id, get all authors
         require('read.php');
+    } else {
+        //There was an id, get read_single
+        require('read_single.php');
     }
 } else if ($method == 'POST') {
 

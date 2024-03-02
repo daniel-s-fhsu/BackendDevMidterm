@@ -35,41 +35,30 @@ class Author {
         return $stmt;
     }
 
-    // Get single post
-    // public function read_single() {
-    //     //Create query
-    //     $query = 'SELECT 
-    //                 c.name AS category_name,
-    //                 p.id,
-    //                 p.category_id,
-    //                 p.title,
-    //                 p.body,
-    //                 p.author,
-    //                 p.created_at
-    //             FROM
-    //                 '. $this-> table .' p 
-    //             LEFT JOIN
-    //                 categories c ON p.category_id = c.id
-    //             WHERE p.id = ? LIMIT 0,1';
+    //Get single post
+    public function read_single() {
+        //Create query
+        $query = 'SELECT 
+                    id,
+                    author
+                FROM
+                    '. $this-> table .' 
+                WHERE id = ? LIMIT 1';
 
-    //     // Prepare statement
-    //     $stmt = $this->conn->prepare($query);
+        // Prepare statement
+        $stmt = $this->conn->prepare($query);
 
-    //     // Bind ID
-    //     $stmt->bindParam(1, $this->id);
+        // Bind ID
+        $stmt->bindParam(1, $this->id);
 
-    //     // Execute query
-    //     $stmt->execute();
+        // Execute query
+        $stmt->execute();
 
-    //     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    //     // Set props
-    //     $this->title = $row['title'];
-    //     $this->body = $row['body'];
-    //     $this->author = $row['author'];
-    //     $this->category_id = $row['category_id'];
-    //     $this->category_name = $row['category_name'];
-    // }
+        // Set props
+        $this->author = $row['author'];
+    }
 
     // //create post
     // public function create() {
