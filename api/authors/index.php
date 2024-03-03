@@ -17,5 +17,5 @@ if ($method == 'GET') {
 } else if ($method == 'PUT') {
     require('update.php');
 } else if ($method == 'DELETE') {
-
+    require('delete.php');
 }
