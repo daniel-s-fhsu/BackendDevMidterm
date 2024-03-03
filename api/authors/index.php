@@ -13,5 +13,9 @@ if ($method == 'GET') {
         require('read_single.php');
     }
 } else if ($method == 'POST') {
+    require('create.php');
+} else if ($method == 'PUT') {
+    require('update.php');
+} else if ($method == 'DELETE') {
 
 }

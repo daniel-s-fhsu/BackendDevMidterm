@@ -20,27 +20,21 @@
     // Instantiate author object
     $author = new Author($db);
 
-    // Get ID
-    $author->id = isset($_GET['id']) ? $_GET['id'] : die();
+    // Get raw posted data
+    $data = json_decode(file_get_contents("php://input"));
 
-    // Blog post query
-    $author->read_single();
-    
-    // Create array
-    $author_arr = array(
-        'id' => $author->id,
-        'author' => $author->author
-    );
-
-    if ($author->author == null) {
-        echo "author_id Not Found";
-    } else {
-        // JSON encode
-        print_r(json_encode($author_arr));
+    if ($data->author == null || $data->author == "" ||
+        $data->id == null || $data->id == "") {
+        echo "PUT submission MUST contain id and author";
+        die();
     }
 
-    // } else {
-    //     // No posts
-    //     echo json_encode(array('message' => 'No Authors Found with id '.
-    //         $author->id));
-    // }
+    $author->author = $data->author;
+    $author->id = $data->id;
+    // Update author
+    if($author->update()) {
+        echo json_encode(array('message' => 'updated author (' .
+        $author->id . "," . $author->author .')'));
+    } else {
+        echo json_encode(array('message' => 'author_id Not Found'));
+    }
