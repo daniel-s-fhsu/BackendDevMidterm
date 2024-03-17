@@ -2,17 +2,17 @@
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
-    if ($data->quote == null || $data->quote == "") {
+    if (!isset($data->quote)) {
         echo "POST submission MUST contain quote";
         die();
     }
 
-    if ($data->author_id == null || $data->author_id == "") {
+    if (!isset($data->author_id)) {
         echo "POST submission MUST contain author_id";
         die();
     }
 
-    if ($data->category_id == null || $data->category_id == "") {
+    if (!isset($data->category_id)) {
         echo "POST submission MUST contain category_id";
         die();
     }
