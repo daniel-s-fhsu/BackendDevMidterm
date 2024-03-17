@@ -2,8 +2,7 @@
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
-    if ($data->author == null || $data->author == "" ||
-        $data->id == null || $data->id == "") {
+    if (!isset($data->id) || !isset($data->author)) {
         echo "PUT submission MUST contain id and author";
         die();
     }

@@ -12,6 +12,7 @@ if ($method === 'OPTIONS') {
 
 include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
+include_once '../../util/IsValid.php';
 
 // Instantiate DB & connect
 $database = new Database();

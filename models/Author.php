@@ -58,6 +58,7 @@ class Author {
 
         // Set props
         $this->author = $row['author'];
+
     }
 
     //create post

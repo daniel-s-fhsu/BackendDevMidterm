@@ -4,7 +4,7 @@
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
-    if ($data->author == null || $data->author == "") {
+    if (isset($data->author)) {
         echo "POST submission MUST contain author";
         die();
     }
