@@ -4,7 +4,7 @@
 
     // Category query
     $category->read_single();
-    
+
     // Create array
     $category_arr = array(
         'id' => $category->id,
