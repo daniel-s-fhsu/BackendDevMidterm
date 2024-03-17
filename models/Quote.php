@@ -152,27 +152,27 @@ class Quote {
         return false;
     }
 
-    // //Delete category
-    // public function delete() {
-    //     $query = 'DELETE FROM '. $this->table . ' WHERE id=:id';
+    //Delete quote
+    public function delete() {
+        $query = 'DELETE FROM '. $this->table . ' WHERE id=:id';
 
-    //     //Prepare statement
-    //     $stmt = $this->conn->prepare($query);
+        //Prepare statement
+        $stmt = $this->conn->prepare($query);
 
-    //     //Clean id
-    //     $this->id = htmlspecialchars(strip_tags($this->id));
+        //Clean id
+        $this->id = htmlspecialchars(strip_tags($this->id));
 
-    //     //Bind id
-    //     $stmt->bindParam(':id', $this->id);
+        //Bind id
+        $stmt->bindParam(':id', $this->id);
 
-    //     //Execute query
-    //     if ($stmt->execute()) {
-    //         return true;
-    //     }
+        //Execute query
+        if ($stmt->execute()) {
+            return true;
+        }
 
-    //     // Print error if something goes wrong
-    //     printf("Error: %s.\n", $stmt->error);
+        // Print error if something goes wrong
+        printf("Error: %s.\n", $stmt->error);
 
-    //     return false;
-    // }
+        return false;
+    }
 }

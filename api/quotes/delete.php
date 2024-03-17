@@ -7,10 +7,10 @@
         die();
     }
 
-    $category->id = $data->id;
-    // DELETE Category
-    if($category->delete()) {
-        echo json_encode(array('message' => 'deleted category '. $category->id));
+    $quote->id = $data->id;
+    // DELETE Quote
+    if($quote->delete()) {
+        echo json_encode(array('message' => 'deleted quote '. $quote->id));
     } else {
-        echo json_encode(array('message' => 'category_id Not Found'));
+        echo json_encode(array('message' => 'quote_id Not Found'));
     }
