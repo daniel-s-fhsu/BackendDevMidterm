@@ -84,32 +84,36 @@ class Quote {
         $this->author_name = $row['author_name'];
     }
 
-    // //create category
-    // public function create() {
-    //     //Create query
-    //     $query = 'INSERT INTO ' . $this->table . ' (category) 
-    //      VALUES
-    //          (:category)';
+    //create quote
+    public function create() {
+        //Create query
+        $query = 'INSERT INTO ' . $this->table . ' (quote, category_id, author_id) 
+         VALUES
+             (:quote, :category_id, :author_id)';
 
-    //     //Prepare statement
-    //     $stmt = $this->conn->prepare($query);
+        //Prepare statement
+        $stmt = $this->conn->prepare($query);
 
-    //     //Clean data
-    //     $this->category = htmlspecialchars(strip_tags($this->category));
+        //Clean data
+        $this->quote = htmlspecialchars(strip_tags($this->quote));
+        $this->category_id = htmlspecialchars(strip_tags($this->category_id));
+        $this->author_id = htmlspecialchars(strip_tags($this->author_id));
 
-    //     //Bind data
-    //     $stmt->bindParam(':category', $this->category);
-    //     //Execute query
-    //     if ($stmt->execute()) {
-    //         $this->id = $this->conn->lastInsertId(); //Get ID back from table
-    //         return true;
-    //     }
+        //Bind data
+        $stmt->bindParam(':quote', $this->quote);
+        $stmt->bindParam(':category_id', $this->category_id);
+        $stmt->bindParam(':author_id', $this->author_id);
+        //Execute query
+        if ($stmt->execute()) {
+            $this->id = $this->conn->lastInsertId(); //Get ID back from table
+            return true;
+        }
 
-    //     // Print error if something goes wrong
-    //     printf("Error: %s.\n", $stmt->error);
+        // Print error if something goes wrong
+        printf("Error: %s.\n", $stmt->error);
 
-    //     return false;
-    // }
+        return false;
+    }
 
     // //update category (PUT route)
     // public function update() {
