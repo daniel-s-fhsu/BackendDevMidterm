@@ -1,14 +1,20 @@
 <?php
     class Database {
         //DB Params
-        private $host = 'localhost';
-        private $port = '5432';
-        private $db_name = 'backendDev';
-        private $username = 'postgres';
-        private $password = '1234';
+        private $host;
+        private $port;
+        private $db_name;
+        private $username;
+        private $password;
         private $conn;
-        //These are local passwords only
-        //TODO: remove to enviroment variables for web conn
+
+    public function __construct() {
+        $this->host = getenv("HOST");
+        $this->port = getenv("PORT");
+        $this->db_name = getenv("DBNAME");
+        $this->username = getenv("USERNAME");
+        $this->password = getenv("PASSWORD");
+    }
     
 
     //DB connect
