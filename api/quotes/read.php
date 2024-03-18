@@ -16,14 +16,12 @@
             $quote_item = array(
                 'id' => $id,
                 'quote' => $quote,
-                'author_id' => $author_id,
-                'category_id' => $category_id,
-                'author_name' => $author_name,
-                'category_name' => $category_name
+                'author' => $author_name,
+                'category' => $category_name
             );
 
             // Push to "data"
-            array_push($quotes_arr['data'], $quote_item);
+            array_push($quotes_arr, $quote_item);
 
         }
 
