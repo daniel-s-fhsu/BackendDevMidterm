@@ -56,6 +56,9 @@ class Author {
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        // Exit if nothing returned
+        if (!isset($row['author'])) return;
+
         // Set props
         $this->author = $row['author'];
 
