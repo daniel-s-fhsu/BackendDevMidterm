@@ -3,8 +3,12 @@
     $quote->category_id = isset($_GET['category_id']) ? $_GET['category_id'] : "";
     $quote->author_id = isset($_GET["author_id"]) ? $_GET["author_id"] : "";
 
+    // Check for random
+    $is_random_string =  isset($_GET['random']) ? $_GET['random'] : 'false';
+    $is_random = $is_random_string == "true" ? true : false;
+
     // Quote query
-    $result = $quote->read();
+    $result = $quote->read($is_random);
     // Get row count
     $num = $result->rowCount();
 

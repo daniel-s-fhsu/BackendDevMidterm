@@ -20,7 +20,8 @@ class Quote {
     }
 
     //Get quotes
-    public function read() {
+    public function read($is_random = false) {
+
         //Create query
         $query = 'SELECT 
                     q.id,
@@ -44,10 +45,13 @@ class Quote {
             if ($this->category_id != "") $query = $query . "q.category_id = " . $this->category_id . " ";
         }
 
-        $query = $query . 'ORDER BY
-                    q.id DESC';
+        if ($is_random === true) {
+            $query = $query . "ORDER BY random() LIMIT 1";
+        } else {
+            $query = $query . 'ORDER BY
+                        q.id DESC';
+        }
 
-        
         // Prepare statement
         $stmt = $this->conn->prepare($query);
 
