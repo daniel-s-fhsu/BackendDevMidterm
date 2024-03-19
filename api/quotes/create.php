@@ -26,8 +26,8 @@
         $quote_arr = array(
             'id' => $quote->id,
             'quote' => $quote->quote,
-            'author' => $quote->author_name,
-            'category' => $quote->category_name
+            'author_id' => $quote->author_id,
+            'category_id' => $quote->category_id
         );
         echo json_encode($quote_arr);
     } else {
