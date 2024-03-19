@@ -14,7 +14,8 @@
     );
 
     if ($quote->quote == null) {
-        echo json_encode(array("message" => "No Quotes Found"));
+        //echo json_encode(array("message" => "No Quotes Found"));
+        echo json_encode("No Quotes Found");
     } else {
         // JSON encode
         print_r(json_encode($quote_arr));
