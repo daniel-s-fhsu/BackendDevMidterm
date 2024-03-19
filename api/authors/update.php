@@ -3,7 +3,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     if (!isset($data->id) || !isset($data->author)) {
-        echo "Missing Required Parameters";
+        echo json_encode(array("message" => "Missing Required Parameters"));
         die();
     }
 

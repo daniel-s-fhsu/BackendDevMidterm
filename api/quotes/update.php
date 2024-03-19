@@ -6,7 +6,7 @@
         !isset($data->quote) ||
         !isset($data->category_id) ||
         !isset($data->author_id)) {
-        echo "Missing Required Parameters";
+        echo json_encode(array("message" => "Missing Required Parameters"));
         die();
     }
 

@@ -4,7 +4,7 @@
 
     if ($data->category == null || $data->category == "" ||
         $data->id == null || $data->id == "") {
-        echo "Missing Required Parameters";
+        echo json_encode(array("message" => "Missing Required Parameters"));
         die();
     }
 
