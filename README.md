@@ -1,7 +1,10 @@
 # BackendDevMidterm
-Midterm for backend dev 1
+Midterm REST API project for INF653
+Daniel Seip
+# Link to deployment
+https://backenddevmidterm.onrender.com/
 # Deployment
-Requires a .htaccess file with the following format:
+Requires a .htaccess file with the following format for local deployment:
 ```
 SetEnv USERNAME "******************"
 SetEnv PASSWORD "******************"

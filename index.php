@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>PHP Rest API Midterm Project</h1>
 </body>
 </html>
