@@ -7,6 +7,11 @@
         die();
     }
 
+    if (!isValid($data->id, new Quote($db))) {
+        echo json_encode(array("message"=> "No Quotes Found"));
+        die();
+    }
+
     $quote->id = $data->id;
     // DELETE Quote
     if($quote->delete()) {

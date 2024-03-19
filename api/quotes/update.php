@@ -20,6 +20,11 @@
         die();
     }
 
+    if (!isValid($data->id, new Quote($db))) {
+        echo json_encode(array("message"=> "No Quotes Found"));
+        die();
+    }
+
     $quote->quote = $data->quote;
     $quote->id = $data->id;
     $quote->category_id = $data->category_id;
