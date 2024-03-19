@@ -86,6 +86,8 @@ class Quote {
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        if (!isset($row['quote'])) return;
+
         // Set props
         $this->quote = $row['quote'];
         $this->category_id = $row['category_id'];
