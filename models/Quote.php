@@ -34,9 +34,19 @@ class Quote {
                 LEFT JOIN
                     categories c on q.category_id = c.id
                 LEFT JOIN
-                    authors a on q.author_id = a.id
-                ORDER BY
+                    authors a on q.author_id = a.id ';
+        
+        if ($this->author_id != "" || $this->category_id != "") {
+            // Conditional where clause only if author_id or category_id are set
+            $query = $query . "WHERE ";
+            if ($this->author_id != "") $query = $query . "q.author_id = " . $this->author_id . " ";
+            if ($this->author_id != "" && $this->category_id != "") $query = $query . " AND ";
+            if ($this->category_id != "") $query = $query . "q.category_id = " . $this->category_id . " ";
+        }
+
+        $query = $query . 'ORDER BY
                     q.id DESC';
+
         
         // Prepare statement
         $stmt = $this->conn->prepare($query);

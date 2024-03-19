@@ -12,7 +12,7 @@
     );
 
     if ($author->author == null) {
-        echo "author_id Not Found";
+        echo json_encode(array("message" => "author_id Not Found"));
     } else {
         // JSON encode
         print_r(json_encode($author_arr));

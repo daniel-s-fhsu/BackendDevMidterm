@@ -1,4 +1,8 @@
 <?php
+    // Get query string information
+    $quote->category_id = isset($_GET['category_id']) ? $_GET['category_id'] : "";
+    $quote->author_id = isset($_GET["author_id"]) ? $_GET["author_id"] : "";
+
     // Quote query
     $result = $quote->read();
     // Get row count
