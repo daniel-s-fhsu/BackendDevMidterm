@@ -23,8 +23,13 @@
 
     // Create Quote
     if($quote->create()) {
-        echo json_encode(array('message' => 'created quote (' .
-        $quote->id . "," . $quote->quote .')'));
+        $quote_arr = array(
+            'id' => $quote->id,
+            'quote' => $quote->quote,
+            'author' => $quote->author_name,
+            'category' => $quote->category_name
+        );
+        echo json_encode($quote_arr);
     } else {
         echo json_encode(array('message' => 'quote_id Not Found'));
     }
