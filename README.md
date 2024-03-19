@@ -6,9 +6,9 @@ https://backenddevmidterm.onrender.com/
 # Deployment
 Requires a .htaccess file with the following format for local deployment:
 ```
-SetEnv USERNAME "******************"
-SetEnv PASSWORD "******************"
+SetEnv DBUSERNAME "******************"
+SetEnv DBPASSWORD "******************"
 SetEnv DBNAME "******************"
-SetEnv HOST "******************"
-SetEnv PORT "******************"
+SetEnv DBHOST "******************"
+SetEnv DBPORT "******************"
 ```
