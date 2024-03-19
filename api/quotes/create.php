@@ -9,10 +9,12 @@
 
     if (!isValid($data->author_id, new Author($db))) {
         echo json_encode(array("message"=> "author_id Not Found"));
+        die();
     }
 
     if (!isValid($data->category_id, new Category($db))) {
         echo json_encode(array("message"=> "category_id Not Found"));
+        die();
     }
 
     $quote->quote = $data->quote;
