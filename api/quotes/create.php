@@ -2,19 +2,17 @@
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
-    if (!isset($data->quote)) {
-        echo "POST submission MUST contain quote";
+    if (!isset($data->quote) || !isset($data->author_id) || !isset($data->category_id)) {
+        echo json_encode(array("message" => "Missing Required Parameters"));
         die();
     }
 
-    if (!isset($data->author_id)) {
-        echo "POST submission MUST contain author_id";
-        die();
+    if (!isValid($data->author_id, new Author($db))) {
+        echo json_encode(array("message"=> "author_id Not Found"));
     }
 
-    if (!isset($data->category_id)) {
-        echo "POST submission MUST contain category_id";
-        die();
+    if (!isValid($data->category_id, new Category($db))) {
+        echo json_encode(array("message"=> "category_id Not Found"));
     }
 
     $quote->quote = $data->quote;

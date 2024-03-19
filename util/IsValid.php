@@ -8,5 +8,5 @@ function isValid($id, $model) {
     //Call the read_single method
     $model->read_single();
     //Return if exists
-    return (isset($model->author) || isset($model->quote) || isset($model->category));
+    return ($model->author != "" || $model->quote != "" || $model->category != "");
 }

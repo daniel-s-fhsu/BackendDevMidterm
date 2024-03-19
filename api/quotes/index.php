@@ -14,6 +14,10 @@ include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 include_once '../../util/IsValid.php';
 
+//Includes for isValid model parameter
+include_once '../../models/Author.php';
+include_once '../../models/Category.php';
+
 // Instantiate DB & connect
 $database = new Database();
 $db = $database->connect();
