@@ -3,7 +3,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     if ($data->category == null || $data->category == "") {
-        echo "POST submission MUST contain category";
+        echo json_encode(array("message" => "Missing Required Parameters"));
         die();
     }
 
