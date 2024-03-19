@@ -6,7 +6,17 @@
         !isset($data->quote) ||
         !isset($data->category_id) ||
         !isset($data->author_id)) {
-        echo "PUT submission MUST contain id quote category_id and author_id";
+        echo "Missing Required Parameters";
+        die();
+    }
+
+    if (!isValid($data->author_id, new Author($db))) {
+        echo json_encode(array("message"=> "author_id Not Found"));
+        die();
+    }
+
+    if (!isValid($data->category_id, new Category($db))) {
+        echo json_encode(array("message"=> "category_id Not Found"));
         die();
     }
 
@@ -16,8 +26,10 @@
     $quote->author_id = $data->author_id;
     // Update category
     if($quote->update()) {
-        echo json_encode(array('message' => 'updated quote (' .
-        $quote->id . "," . $quote->quote .')'));
+        echo json_encode(array('id' => $quote->id,
+                               'quote' => $quote->quote,
+                               'author_id' => $quote->author_id,
+                               'category_id' => $quote->category_id));
     } else {
-        echo json_encode(array('message' => 'quote_id Not Found'));
+        echo json_encode(array('message' => 'No Quotes Found'));
     }

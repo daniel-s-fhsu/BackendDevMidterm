@@ -4,7 +4,7 @@
 
     if ($data->category == null || $data->category == "" ||
         $data->id == null || $data->id == "") {
-        echo "PUT submission MUST contain id and category";
+        echo "Missing Required Parameters";
         die();
     }
 
@@ -12,8 +12,8 @@
     $category->id = $data->id;
     // Update category
     if($category->update()) {
-        echo json_encode(array('message' => 'updated category (' .
-        $category->id . "," . $category->category .')'));
+        echo json_encode(array('id'         => $category->id,
+                               'category'   => $category->category));
     } else {
         echo json_encode(array('message' => 'category_id Not Found'));
     }
