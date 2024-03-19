@@ -7,5 +7,7 @@
 </head>
 <body>
     <h1>PHP Rest API Midterm Project</h1>
+    <br>
+    <p>Daniel Seip</p>
 </body>
 </html>
