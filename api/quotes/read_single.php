@@ -14,7 +14,7 @@
     );
 
     if ($quote->quote == null) {
-        print_r(json_encode(array("message" => "No Quotes Found")));
+        print_r(json_encode(array("message" => "category_id Not Found")));
     } else {
         // JSON encode
         print_r(json_encode($quote_arr));

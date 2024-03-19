@@ -56,6 +56,9 @@ class Category {
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        // Exit if nothing returned
+        if(!isset($row['category'])) return;
+
         // Set props
         $this->category = $row['category'];
     }

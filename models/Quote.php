@@ -86,6 +86,7 @@ class Quote {
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        //Exit if there was nothing returned by query
         if (!isset($row['quote'])) return;
 
         // Set props
