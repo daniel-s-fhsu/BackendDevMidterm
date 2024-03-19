@@ -23,6 +23,8 @@ $author = new Author($db);
 
 $method = $_SERVER['REQUEST_METHOD'];
 
+echo $method;
+
 if ($method == 'GET') {
     // Check if there was an id specified
     $id = isset($_GET['id']) ? $_GET['id'] : '';
